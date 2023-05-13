@@ -11,24 +11,58 @@
     <link rel="stylesheet" href="styles/cadastrar.css">
 </head>
 <body>
+    <?php
+        $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+        
+        if (!empty($dados['SendCadUsuario'])) {
+            
+            try {
+                $query_usuario = 
+                "INSERT INTO usuarios (nome, email, senha, sit_usuario_id, nivel_acesso_id, created)
+                VALUES (:nome, :email, :senha, :sits_usuario_id, :nivel_acesso_id, NOW())";
+                $cad_usuario = $conexao->prepare($query_usuario);
+                $cad_usuario->bindParam(':nome', $dados['nome_usuario'], PDO::PARAM_STR);
+                $cad_usuario->bindParam(':email', $dados['email_usuario'], PDO::PARAM_STR);
+    
+                $senha_cripto = password_hash($dados['senha_usuario'], PASSWORD_DEFAULT);
+    
+                $cad_usuario->bindParam(':senha', $senha_cripto, PDO::PARAM_STR);
+                $cad_usuario->bindParam(':sits_usuario_id', $dados['sit_usuario'], PDO::PARAM_INT);
+                $cad_usuario->bindParam(':nivel_acesso_id', $dados['nivel_acesso_usuario'], PDO::PARAM_INT);
+    
+                $cad_usuario->execute();
+    
+                if ($cad_usuario->rowCount()) {
+                    echo "<p>Usuario cadastrado</p>";
+                    unset($dados);//destroi a variavel $dados
+                } else {
+                    "ERRO! Usuario nao cadastrado";
+                }
+
+            } catch (PDOException $erro) {
+                echo "ERRO! Usuario não cadastrado. <br> ERRO: " . $erro->getMessage() . "<br>";
+            }
+
+        }
+    ?>
     <form action="" method="POST" id="form_cad">
         <div class="campo_cad">
-            <label for="nome_usuario">Nome:</label>
+            <label for="nome_usuario" required>Nome:</label>
             <input type="text" name="nome_usuario" id="nome_usuario">            
         </div>
 
         <div class="campo_cad">
-            <label for="email_usuario">E-mail:</label>
+            <label for="email_usuario" required>E-mail:</label>
             <input type="text" name="email_usuario" id="email_usuario">
         </div>
 
         <div class="campo_cad">
-            <label for="senha_usuario">Senha:</label>
+            <label for="senha_usuario" required>Senha:</label>
             <input type="password" name="senha_usuario" id="senha_usuario">
         </div>
 
         <div class="campo_cad">
-            <label for="sit_usuario">Situação:</label>
+            <label for="sit_usuario" required>Situação:</label>
             <select name="sit_usuario" id="sit_usuario">
                 <option value="">Selecione</option>
                 <?php 
@@ -45,7 +79,7 @@
         </div>
 
         <div class="campo_cad">
-            <label for="nivel_acesso_usuario">Nivel de Acesso:</label>
+            <label for="nivel_acesso_usuario" required>Nivel de Acesso:</label>
             <select name="nivel_acesso_usuario" id="nivel_acesso_usuario">
                 <option value="">Selecione</option>
                 <?php 
@@ -61,39 +95,7 @@
             </select>
         </div>
 
-        <div id="btn_cadastrar">
-            <input type="submit" value="Cadastrar" name="sendCadUsuario">
-        </div>
+        <input type="submit" value="Cadastrar" name="SendCadUsuario">
     </form>
-
-    <?php
-        if (!empty($dados['sendCadUsuario'])) {
-
-            try {
-                $dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-                
-                $query_cad = "INSERT INTO usuarios (nome, email, senha, sit_usuario_id, nivel_acesso_id, created) VALUES (:nome, :email, :senha, :sit_usuario, :nivel_acesso, NOW())";
-        
-                $cad_usuario = $conexao->prepare($query_cad);
-        
-                $cad_usuario->bindParam(':nome', $dados['nome']);
-                $cad_usuario->bindParam(':email', $dados['email']);
-                $cad_usuario->bindParam(':senha', $dados['senha']);
-                $cad_usuario->bindParam(':sit_usuario_id', $dados['sit_usuario_id']);
-                $cad_usuario->bindParam(':nivel_acesso_id', $dados['nivel_acesso_id']);
-        
-                $cad_usuario->execute();
-                
-                if ($cad_usuario->rowCount()) {
-                    unset($dados);//destroi a variavel $dados
-                    //header("Location: index.php");
-                } else {
-                    "ERRO! Usuario nao cadastrado";
-                }
-            } catch (PDOException $e) {
-                echo $e->getMessage();
-            }
-        }
-    ?>
 </body>
 </html>
