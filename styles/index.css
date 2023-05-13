@@ -1,0 +1,37 @@
+/*-----------------------------------------------------------------------------------*/
+#tbl_usuarios {
+    border-collapse: collapse;
+}
+
+#tbl_usuarios thead th{
+    border: 1px solid black;
+    padding: 10px 20px;
+}
+
+#tbl_usuarios tbody tr td{
+    border: 1px solid black;
+    padding: 5px 20px;
+}
+/*-----------------------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------------------*/
+#link_cadastrar {
+    display: inline-block;
+    background-color: #14318f;
+    color: white;
+    padding: 10px;
+    border-radius: 12px;
+    text-decoration: none;
+    /* deslocamento-x | deslocamento-y | raio-de-desfoque | cor */
+    text-shadow: 1px 1px 2px black;
+    margin-bottom: 20px;
+}
+
+#link_cadastrar:hover {
+    background-color: #2957ee;
+}
+
+#link_cadastrar:active {
+    transform: scale(0.95);
+}
+/*-----------------------------------------------------------------------------------*/

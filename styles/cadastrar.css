@@ -1,0 +1,24 @@
+body {
+    background-color: #3737ce;
+}
+
+#form_cad {
+    background-color: white;
+    max-width: 500px;
+    margin: auto;
+    border-radius: 15px;
+    padding: 40px 0px;
+}
+
+#form_cad .campo_cad {
+    display: flex;
+    flex-direction: column;
+    max-width: 350px;
+    padding-bottom: 30px;
+    margin: auto;
+}
+
+#btn_cadastrar input {
+    display: block;
+    margin: 0 auto;
+}
