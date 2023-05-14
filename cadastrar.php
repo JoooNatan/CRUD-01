@@ -95,7 +95,8 @@
             </select>
         </div>
 
-        <input type="submit" value="Cadastrar" name="SendCadUsuario">
+        <input type="submit" value="Cadastrar" name="SendCadUsuario" id="btn_cadastrar">
+        <a href="index.php">Voltar</a>
     </form>
 </body>
 </html>
