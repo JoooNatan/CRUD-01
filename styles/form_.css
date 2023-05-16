@@ -1,0 +1,65 @@
+/*-----------------------------------------------------------------------------------*/
+body {
+    background-image: linear-gradient(to right, #2146c0, #2180c0);
+}
+/*-----------------------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------------------*/
+.form_ {
+    background-color: white;
+    max-width: 500px;
+    margin: auto;
+    border-radius: 15px;
+    padding: 40px 0px;
+    /* offset-x | offset-y | blur-radius | color */
+    box-shadow: 10px 10px 15px #0000006e;
+}
+
+.form_ h2 {
+    text-align: center;
+}
+
+.form_ .campo_cad {
+    display: flex;
+    flex-direction: column;
+    max-width: 350px;
+    padding-bottom: 30px;
+    margin: auto;
+}
+/*-----------------------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------------------*/
+#btns {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.btns_ {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+    box-sizing: border-box;
+    background-color: transparent;
+    color: #222222;
+    border: none;
+    border-radius: 8px;
+    padding: 5px 10px;
+    transition: all 50ms ease;
+}
+
+.btns_:hover {
+    background-color: #dbdbdb;
+    color: #000000;
+}
+
+.btns_:active {
+    transform: scale(0.95);
+}
+
+#btn_update,
+#btn_cadastrar {
+    margin-bottom: 10px;
+}
+/*-----------------------------------------------------------------------------------*/
