@@ -12,6 +12,6 @@
         header("Location: index.php");
         
     } catch (PDOException $e) {
-        echo "ERRO: $e";
+        echo "ERRO: " . $e->getMessage();
     }
 ?>
