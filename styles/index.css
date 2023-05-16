@@ -1,4 +1,31 @@
 /*-----------------------------------------------------------------------------------*/
+#link_cadastrar {
+    display: inline-block;
+    background-color: #2146c0;
+    color: white;
+    padding: 10px;
+    border-radius: 12px;
+    text-decoration: none;
+    /* deslocamento-x | deslocamento-y | raio-de-desfoque | cor */
+    text-shadow: 1px 1px 2px black;
+    margin-bottom: 50px;
+    transition: all 0.1s ease;
+}
+
+#link_cadastrar:hover {
+    background-color: #476de9;
+}
+
+#link_cadastrar:active {
+    transform: scale(0.95);
+}
+/*-----------------------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------------------*/
+table {
+    margin: 0 auto;
+}
+
 #tbl_usuarios {
     border-collapse: collapse;
 }
@@ -15,23 +42,51 @@
 /*-----------------------------------------------------------------------------------*/
 
 /*-----------------------------------------------------------------------------------*/
-#link_cadastrar {
+body {
+    background-image: linear-gradient(to right, #2146c0, #2180c0);
+}
+
+main {
+    background-color: white;
+    max-width: 1100px;
+    text-align: center;
+    margin: auto;
+    border-radius: 15px;
+    padding: 40px 0px;
+    /* offset-x | offset-y | blur-radius | color */
+    box-shadow: 10px 10px 15px #0000006e;
+}
+
+#link_apagar {
     display: inline-block;
-    background-color: #14318f;
-    color: white;
-    padding: 10px;
-    border-radius: 12px;
+    padding: 5px 10px;
     text-decoration: none;
-    /* deslocamento-x | deslocamento-y | raio-de-desfoque | cor */
-    text-shadow: 1px 1px 2px black;
-    margin-bottom: 20px;
+    color: white;
+    background-color: #b60000;
+    border-radius: 8px;
+    transition: all 30ms ease;
 }
 
-#link_cadastrar:hover {
-    background-color: #2957ee;
+#link_apagar:hover {
+    background-color: #ce2121;
 }
 
-#link_cadastrar:active {
+#link_editar {
+    display: inline-block;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: white;
+    background-color: #dabc17;
+    border-radius: 8px;
+    transition: all 30ms ease;
+}
+
+#link_editar:hover {
+    background-color: #ebcf35;
+}
+
+#link_apagar:active,
+#link_editar:active {
     transform: scale(0.95);
 }
 /*-----------------------------------------------------------------------------------*/
