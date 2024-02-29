@@ -29,8 +29,8 @@
                     $query_usuarios = 
                     "SELECT usuarios.id AS id_usu, usuarios.nome AS nome_usu, usuarios.email AS email_usu, sits_usuarios.nome AS nome_sit, niveis_acessos.nome AS nome_nivel
                     FROM usuarios
-                    LEFT JOIN sits_usuarios ON usuarios.sit_usuario_id = sits_usuarios.id
-                    LEFT JOIN niveis_acessos ON usuarios.nivel_acesso_id = niveis_acessos.id
+                    INNER JOIN sits_usuarios ON usuarios.sit_usuario_id = sits_usuarios.id
+                    INNER JOIN niveis_acessos ON usuarios.nivel_acesso_id = niveis_acessos.id
                     ORDER BY usuarios.id ASC";
                     
                     $result_usuarios = $conexao->prepare($query_usuarios);
